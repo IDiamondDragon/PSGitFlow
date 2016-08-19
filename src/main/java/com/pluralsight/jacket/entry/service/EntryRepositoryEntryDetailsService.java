@@ -42,6 +42,16 @@ public class EntryRepositoryEntryDetailsService implements JacketEntryService {
     	return serviceEntries;
     }
 
+	@Override
+ 	public JacketEntry getEntry(long id) {
+		Entry e;
+        try {
+             e = repository.findOne(id);
+        } catch (Exception ex) {
+            throw new JacketServiceException("Unable to find entry in repository", ex);
+        }
+        return new JacketEntry(e.getUrl());
+ 	}
 
 	@Override
 	@Transactional(readOnly = false)
