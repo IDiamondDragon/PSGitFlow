@@ -23,4 +23,5 @@ public class Entry extends BaseModel {
     public void setTitle(String title) {
 	this.title = title;
     }
-}}
+}
+}
